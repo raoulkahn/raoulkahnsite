@@ -63,14 +63,14 @@ function GradientThumb({ config }) {
 
 const aiProjects = [
   {
-    id: 1,
-    title: 'Lyst Mode: AI-Built iOS App',
-    image: '/images/lystmode-thumbnail.avif',
-    imagePosition: 'top',
-    desc: 'Live on the App Store. Privacy-first task manager built end-to-end with AI.',
-    link: 'https://raoulkahn.github.io/lystmode/',
+    id: 6,
+    title: "Product Expert Insights — Lenny's Podcast",
+    image: null,
+    customThumbnail: 'lenny-slider',
+    desc: 'Ask a product question, get cited answers from 300+ expert interviews. Leaders from Google, Stripe, Airbnb, and more.',
+    link: '/product-expert-insights',
     linkLabel: 'View Case Study',
-    pills: ['Claude Code', 'Figma', 'Swift', 'Xcode'],
+    pills: ['OpenAI', 'Claude', 'Python'],
   },
   {
     id: 2,
@@ -81,6 +81,15 @@ const aiProjects = [
     link: 'https://raoulkahn.github.io/evalbench/',
     linkLabel: 'View Case Study',
     pills: ['Claude', 'Python', 'OpenAI'],
+  },
+  {
+    id: 11,
+    title: 'Gryd Mode Calculator App',
+    video: '/images/case-studies/grydmode/lights.mp4',
+    desc: 'I wanted a calculator that reminded me of Tron Legacy and Daft Punk, so I built one.',
+    link: null,
+    linkLabel: 'Coming soon to App Store',
+    pills: ['Claude AI', 'Claude Code', 'Figma'],
   },
   {
     id: 3,
@@ -113,14 +122,14 @@ const aiProjects = [
     pills: ['Claude', 'Strava', 'React', 'Python', 'Cursor'],
   },
   {
-    id: 6,
-    title: "Product Expert Insights — Lenny's Podcast",
-    image: null,
-    customThumbnail: 'lenny-slider',
-    desc: 'Ask a product question, get cited answers from 300+ expert interviews. Leaders from Google, Stripe, Airbnb, and more.',
-    link: '/product-expert-insights',
+    id: 1,
+    title: 'Lyst Mode: AI-Built iOS App',
+    image: '/images/lystmode-thumbnail.avif',
+    imagePosition: 'top',
+    desc: 'Live on the App Store. Privacy-first task manager built end-to-end with AI.',
+    link: 'https://raoulkahn.github.io/lystmode/',
     linkLabel: 'View Case Study',
-    pills: ['OpenAI', 'Claude', 'Python'],
+    pills: ['Claude Code', 'Figma', 'Swift', 'Xcode'],
   },
   {
     id: 7,
@@ -241,7 +250,17 @@ function ProjectCard({ project }) {
 
       {/* Thumbnail */}
       <div className="mx-5 mt-5 rounded-xl overflow-hidden h-52 flex-shrink-0">
-        {project.customThumbnail === 'lenny-slider' ? (
+        {project.video ? (
+          <video
+            src={project.video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-contain"
+            style={{ background: '#000' }}
+          />
+        ) : project.customThumbnail === 'lenny-slider' ? (
           <LennySlider />
         ) : project.image ? (
           <img
@@ -283,7 +302,7 @@ function ProjectCard({ project }) {
                 {project.linkLabel} →
               </span>
             ) : (
-              <span className="text-[#8898aa] text-sm">Coming Soon</span>
+              <span className="text-[#8898aa] text-sm">{project.linkLabel || 'Coming Soon'}</span>
             )}
           </div>
         </div>
@@ -319,7 +338,7 @@ export default function Portfolio() {
 
         {/* Tab switcher */}
         <div className="flex gap-2 mb-10">
-          {[['ai', 'AI Projects (9)'], ['professional', 'Professional (2)']].map(([tab, label]) => (
+          {[['ai', 'AI Projects (10)'], ['professional', 'Professional (2)']].map(([tab, label]) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}

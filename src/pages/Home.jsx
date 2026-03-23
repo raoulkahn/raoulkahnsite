@@ -216,20 +216,22 @@ export default function Home() {
 
           {/* Text block */}
           <div className="flex-1 text-center md:text-left">
-            <div className="flex items-center gap-5 justify-center md:justify-start mb-2">
-              <h1 className="text-4xl md:text-5xl font-extrabold text-[#1e2f42] leading-tight tracking-tight">
-                Raoul Kahn
-              </h1>
+            <div className="flex items-center gap-5 justify-center md:justify-start">
+              <div>
+                <h1 className="text-4xl md:text-5xl font-extrabold text-[#1e2f42] leading-tight tracking-tight">
+                  Raoul Kahn
+                </h1>
+                <p className="text-[#3b6ea5] font-semibold text-lg mt-1">
+                  AI Product Manager
+                </p>
+              </div>
               <div
-                className="flex-shrink-0 w-14 h-14 bg-[#dde9f5] border-2 border-[#3b6ea5]/20 shadow-md overflow-hidden"
+                className="flex-shrink-0 w-52 h-52 bg-[#dde9f5] border-2 border-[#3b6ea5]/20 shadow-md overflow-hidden"
                 style={{ borderRadius: '50%' }}
               >
                 <img src="/headshot.png" alt="Raoul Kahn" className="w-full h-full object-cover" />
               </div>
             </div>
-            <p className="text-[#3b6ea5] font-semibold text-lg mb-5">
-              AI Product Manager
-            </p>
           </div>
         </div>
       </section>
