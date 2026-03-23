@@ -10,6 +10,7 @@ import ProductExpertInsights from './pages/ProductExpertInsights.jsx'
 import QuizApp from './pages/QuizApp.jsx'
 import Spin from './pages/Spin.jsx'
 import AutoTune from './pages/AutoTune.jsx'
+import ModelSelection from './pages/ModelSelection.jsx'
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/quizapp" element={<QuizApp />} />
           <Route path="/spin" element={<Spin />} />
           <Route path="/autotune" element={<AutoTune />} />
+          <Route path="/model-selection" element={<ModelSelection />} />
         </Routes>
       </main>
       <Footer />

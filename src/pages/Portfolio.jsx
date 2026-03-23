@@ -63,14 +63,23 @@ function GradientThumb({ config }) {
 
 const aiProjects = [
   {
-    id: 6,
-    title: "Product Expert Insights — Lenny's Podcast",
-    image: null,
-    customThumbnail: 'lenny-slider',
-    desc: 'Ask a product question, get cited answers from 300+ expert interviews. Leaders from Google, Stripe, Airbnb, and more.',
-    link: '/product-expert-insights',
+    id: 3,
+    title: 'PM Dashboard: Multi-Agent Briefing',
+    image: '/images/pm-dashboard.gif',
+    imageTransform: 'scale(3.77) translate(-3%, 14%)',
+    desc: 'Replaces 30+ minutes of daily triage. Four AI agents synthesize email, calendar, tickets, and competitors into one brief.',
+    link: 'https://raoulkahn.github.io/pm-brief/',
     linkLabel: 'View Case Study',
-    pills: ['OpenAI', 'Claude', 'Python'],
+    pills: ['n8n', 'Claude', 'Python'],
+  },
+  {
+    id: 12,
+    title: 'Model Selection Framework',
+    customThumbnail: 'model-selection',
+    desc: 'I tested 6 AI models on a real extraction task — the cheapest one won. Here\'s the data behind the decision.',
+    link: '/model-selection',
+    linkLabel: 'View Case Study',
+    pills: ['Python', 'Claude API', 'OpenAI', 'Together AI'],
   },
   {
     id: 2,
@@ -92,14 +101,14 @@ const aiProjects = [
     pills: ['Claude AI', 'Claude Code', 'Figma'],
   },
   {
-    id: 3,
-    title: 'PM Dashboard: Multi-Agent Briefing',
-    image: '/images/pm-dashboard.gif',
-    imageTransform: 'scale(3.77) translate(-3%, 14%)',
-    desc: 'Replaces 30+ minutes of daily triage. Four AI agents synthesize email, calendar, tickets, and competitors into one brief.',
-    link: 'https://raoulkahn.github.io/pm-brief/',
+    id: 6,
+    title: "Product Expert Insights — Lenny's Podcast",
+    image: null,
+    customThumbnail: 'lenny-slider',
+    desc: 'Ask a product question, get cited answers from 300+ expert interviews. Leaders from Google, Stripe, Airbnb, and more.',
+    link: '/product-expert-insights',
     linkLabel: 'View Case Study',
-    pills: ['n8n', 'Claude', 'Python'],
+    pills: ['OpenAI', 'Claude', 'Python'],
   },
   {
     id: 4,
@@ -183,6 +192,61 @@ const professionalProjects = [
   },
 ]
 
+// ── Model Selection thumbnail ─────────────────────────────────────────────────
+
+function ModelSelectionThumbnail() {
+  return (
+    <div
+      className="w-full h-full flex flex-col items-center justify-between py-4 px-3"
+      style={{ background: '#1a2332' }}
+    >
+      {/* Top headline */}
+      <p className="text-[13px] font-semibold tracking-wide text-center" style={{ color: '#e2eaf3' }}>
+        Cheapest model won
+      </p>
+
+      {/* Main figures row */}
+      <div className="flex items-center justify-center gap-4 flex-1">
+
+        {/* Winner — $0.03 */}
+        <div className="flex flex-col items-center gap-1.5">
+          <div className="flex items-start gap-0.5">
+            <span className="text-[15px] font-bold mt-1" style={{ color: '#4ade80' }}>$</span>
+            <span className="text-[46px] font-extrabold leading-none text-white" style={{
+              textShadow: '0 0 28px rgba(74,222,128,0.5)',
+            }}>0.03</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <span style={{ color: '#4ade80', fontSize: '13px' }}>✓</span>
+            <span className="text-[13px] font-semibold tracking-wide" style={{ color: '#cbd5e1' }}>Prompting</span>
+          </div>
+        </div>
+
+        {/* beats */}
+        <span className="text-[11px] font-semibold pb-5" style={{ color: '#6b8299' }}>beats</span>
+
+        {/* Loser — $0.11 */}
+        <div className="flex flex-col items-center gap-1.5" style={{ opacity: 0.65 }}>
+          <div className="flex items-start gap-0.5">
+            <span className="text-[11px] font-bold mt-1.5" style={{ color: '#94a3b8' }}>$</span>
+            <span className="text-[30px] font-extrabold leading-none line-through decoration-red-400 decoration-2" style={{ color: '#94a3b8' }}>0.11</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <span style={{ color: '#f87171', fontSize: '12px' }}>✕</span>
+            <span className="text-[13px] font-semibold tracking-wide" style={{ color: '#94a3b8' }}>Fine-Tuned</span>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Bottom footnote */}
+      <p className="text-[11px] font-medium" style={{ color: '#6b8299' }}>
+        6 models · 300 episodes
+      </p>
+    </div>
+  )
+}
+
 // ── Lenny slider thumbnail ────────────────────────────────────────────────────
 
 const LENNY_IMAGES = [
@@ -262,6 +326,8 @@ function ProjectCard({ project }) {
           />
         ) : project.customThumbnail === 'lenny-slider' ? (
           <LennySlider />
+        ) : project.customThumbnail === 'model-selection' ? (
+          <ModelSelectionThumbnail />
         ) : project.image ? (
           <img
             src={project.image}
