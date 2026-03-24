@@ -97,8 +97,8 @@ const aiProjects = [
     title: 'Gryd Mode Calculator App',
     video: '/images/case-studies/grydmode/lights.mp4',
     desc: 'I wanted a calculator that reminded me of Tron Legacy and Daft Punk, so I built one.',
-    link: null,
-    linkLabel: 'Coming soon to App Store',
+    link: 'https://grydmode.com',
+    linkLabel: 'Visit Grydmode.com to download the app',
     pills: ['Claude AI', 'Claude Code', 'Figma'],
   },
   {
