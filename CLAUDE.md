@@ -16,20 +16,24 @@
 
 ## PROJECT STRUCTURE
 - Tech stack: Vite + React + Tailwind CSS
-- Image folders: public/images/ (headshot, projects, case-studies, tools)
+- Image folders: public/images/ (case-studies, banner, Logos)
 - Contact form: Formspree (https://formspree.io/f/xreywewo)
 
 ## DEPLOYMENT
 - GitHub: raoulkahn/raoulkahnsite (main branch)
 - Vercel: auto-deploys on push to main
+- Domain: raoulkahn.com (www redirects to root via 308)
 - SPA routing: vercel.json MUST include rewrite rule: {"rewrites": [{"source": "/(.*)", "destination": "/index.html"}]}
 - Always verify vercel.json rewrite rule is present before pushing.
 
-## PRE-PUSH TESTING CHECKLIST
+## PRE-PUSH CHECKLIST
 Before every push, verify:
+- [ ] All new files referenced in code (images, fonts, assets) are committed to the repo
+- [ ] vercel.json rewrite rule is present
 - [ ] Direct URL access to all sub pages (not just clicking through)
 - [ ] Mobile responsive check
 - [ ] Firefox rendering check
 - [ ] Contact form submits correctly
 - [ ] PDF downloads work on Daily To Do page
 - [ ] No unintended changes to existing elements
+- [ ] List all files changed and get approval before pushing
