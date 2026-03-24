@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import FeaturedBanner from '../components/FeaturedBanner.jsx'
 // ── Data ────────────────────────────────────────────────────────────────────
 
 const highlights = [
@@ -210,6 +211,7 @@ function ContactForm() {
 export default function Home() {
   return (
     <>
+      <FeaturedBanner />
       {/* ── Hero ───────────────────────────────────────────────────── */}
       <section className="pt-14 pb-10 md:pt-20 md:pb-14">
         <div className="max-w-5xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">

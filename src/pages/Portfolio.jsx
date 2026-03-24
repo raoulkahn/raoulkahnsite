@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import FeaturedBanner from '../components/FeaturedBanner.jsx'
 import { GitBranch, BookOpen } from 'lucide-react'
 
 // ── Tool logo system ──────────────────────────────────────────────────────────
@@ -390,6 +391,7 @@ export default function Portfolio() {
 
   return (
     <div className="pb-20">
+      <FeaturedBanner />
       <div className="max-w-5xl mx-auto px-6 pt-12">
 
         {/* Page header */}

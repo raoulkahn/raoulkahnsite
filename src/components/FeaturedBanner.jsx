@@ -1,19 +1,7 @@
-import { useState, useEffect } from 'react'
-
-const STORAGE_KEY = 'featured-banner-dismissed'
+import { useState } from 'react'
 
 export default function FeaturedBanner() {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const dismissed = sessionStorage.getItem(STORAGE_KEY)
-    if (!dismissed) setVisible(true)
-  }, [])
-
-  const dismiss = () => {
-    setVisible(false)
-    sessionStorage.setItem(STORAGE_KEY, '1')
-  }
+  const [visible, setVisible] = useState(true)
 
   if (!visible) return null
 
@@ -27,33 +15,51 @@ export default function FeaturedBanner() {
             Featured Project
           </p>
           <h3 className="text-[#1e2f42] font-bold text-base leading-snug mb-1">
-            Lyst Mode: AI-Built iOS App
+            GrydMode: Now Live on the App Store
           </h3>
           <p className="text-[#3d4f63] text-sm leading-relaxed">
-            Privacy-first to-do app shipped to the App Store in a weekend — zero lines written manually.
+            A Tron Legacy-inspired calculator app. Built with Claude Code, Xcode, and Figma.
           </p>
           <a
-            href="https://lystmode.com"
+            href="https://grydmode.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-[#3b6ea5] text-sm font-semibold mt-2 hover:text-[#5b8fc7] transition-colors"
           >
-            lystmode.com <span>↗</span>
+            grydmode.com ↗
           </a>
         </div>
 
-        {/* Gradient thumbnail */}
-        <div
-          className="flex-shrink-0 w-28 h-20 md:w-36 md:h-24 rounded-xl overflow-hidden"
+        {/* Thumbnail */}
+        <a
+          href="https://grydmode.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-shrink-0 rounded-xl overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 30%, #ec4899 65%, #f97316 100%)',
+            width: '35%',
+            backgroundColor: '#0a0a14',
+            padding: '14px',
+            borderRadius: '12px',
           }}
-        />
+        >
+          <img
+            src="/images/banner/grydmode-banner.gif"
+            alt="GrydMode"
+            style={{ width: '100%', height: 'auto', maxHeight: '100px', objectFit: 'contain', display: 'block' }}
+          />
+        </a>
 
         {/* Dismiss button */}
         <button
-          onClick={dismiss}
-          className="absolute top-3 right-3 w-6 h-6 flex items-center justify-center rounded-full text-[#8898aa] hover:text-[#3d4f63] hover:bg-[#e8ecf0] transition-colors text-sm"
+          onClick={() => setVisible(false)}
+          className="absolute top-3 right-3 flex items-center justify-center rounded-full text-[#8898aa] hover:text-[#3d4f63] hover:bg-[#d8dde3] transition-colors text-base"
+          style={{
+            width: '21px',
+            height: '21px',
+            backgroundColor: '#f0f3f7',
+            border: '1px solid #cdd5de',
+          }}
           aria-label="Dismiss"
         >
           ×
