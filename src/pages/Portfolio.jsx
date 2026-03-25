@@ -64,20 +64,10 @@ function GradientThumb({ config }) {
 
 const aiProjects = [
   {
-    id: 3,
-    title: 'PM Dashboard: Multi-Agent Briefing',
-    image: '/images/pm-dashboard.gif',
-    imageTransform: 'scale(3.77) translate(-3%, 14%)',
-    desc: 'Replaces 30+ minutes of daily triage. Four AI agents synthesize email, calendar, tickets, and competitors into one brief.',
-    link: 'https://raoulkahn.github.io/pm-brief/',
-    linkLabel: 'View Case Study',
-    pills: ['n8n', 'Claude', 'Python'],
-  },
-  {
     id: 12,
     title: 'Model Selection Framework',
     customThumbnail: 'model-selection',
-    desc: 'I tested 6 AI models on a real extraction task — the cheapest one won. Here\'s the data behind the decision.',
+    desc: 'Evaluated 6 production-ready models on a real workload to determine what to ship. The cheapest model won — by a lot.',
     link: '/model-selection',
     linkLabel: 'View Case Study',
     pills: ['Python', 'Claude API', 'OpenAI', 'Together AI'],
@@ -87,29 +77,20 @@ const aiProjects = [
     title: 'EvalBench: AI Evaluation Framework',
     image: '/images/evalbench-thumbnail.png',
     imageFit: 'contain',
-    desc: 'Reduced AI failure rate from 82% to 1%. Nine failure modes identified, validated LLM judges built.',
+    desc: 'Reduced critical AI output failures from 82% to 1% using spec-based evals and LLM-as-judge validation. Built for production readiness.',
     link: 'https://raoulkahn.github.io/evalbench/',
     linkLabel: 'View Case Study',
     pills: ['Claude', 'Python', 'OpenAI'],
   },
   {
-    id: 11,
-    title: 'Gryd Mode Calculator App',
-    video: '/images/case-studies/grydmode/lights.mp4',
-    desc: 'I wanted a calculator that reminded me of Tron Legacy and Daft Punk, so I built one.',
-    link: 'https://grydmode.com',
-    linkLabel: 'Visit Grydmode.com to download the app',
-    pills: ['Claude AI', 'Claude Code', 'Figma'],
-  },
-  {
-    id: 6,
-    title: "Product Expert Insights — Lenny's Podcast",
-    image: null,
-    customThumbnail: 'lenny-slider',
-    desc: 'Ask a product question, get cited answers from 300+ expert interviews. Leaders from Google, Stripe, Airbnb, and more.',
-    link: '/product-expert-insights',
+    id: 3,
+    title: 'PM Dashboard: Multi-Agent Briefing',
+    image: '/images/pm-dashboard.gif',
+    imageTransform: 'scale(3.77) translate(-3%, 14%)',
+    desc: 'Automated daily PM triage using a 4-agent system — email, calendar, Jira, and competitive intel synthesized into one prioritized brief.',
+    link: 'https://raoulkahn.github.io/pm-brief/',
     linkLabel: 'View Case Study',
-    pills: ['OpenAI', 'Claude', 'Python'],
+    pills: ['n8n', 'Claude', 'Python'],
   },
   {
     id: 4,
@@ -117,10 +98,20 @@ const aiProjects = [
     image: '/images/case-studies/mcp/diagram.gif',
     imageFit: 'contain',
     imageBg: '#0d0d0d',
-    desc: 'Turns live product data into Ship / Delay / Kill recommendations. Connected to real metrics, roadmap, and OKRs.',
+    desc: 'Turns live metrics, roadmap constraints, and OKRs into structured Ship / Delay / Kill decisions. Built on Model Context Protocol.',
     link: 'https://raoulkahn.github.io/mcp-product-copilot/',
     linkLabel: 'View Case Study',
     pills: ['Claude', 'MCP', 'Python'],
+  },
+  {
+    id: 6,
+    title: "Product Expert Insights — Lenny's Podcast",
+    image: null,
+    customThumbnail: 'lenny-slider',
+    desc: 'Surfaces cited answers from 300+ expert interviews using a RAG system. Semantic search across 15,000+ indexed segments.',
+    link: '/product-expert-insights',
+    linkLabel: 'View Case Study',
+    pills: ['OpenAI', 'Claude', 'Python'],
   },
   {
     id: 5,
@@ -151,15 +142,6 @@ const aiProjects = [
     pills: ['Claude', 'Flask', 'Cursor'],
   },
   {
-    id: 9,
-    title: 'Daily To Do — AI Workflow',
-    image: '/images/case-studies/daily-to-do/hero.png',
-    desc: 'The workflow behind all of these projects. Explore → Plan → Execute → Review → Peer Review → Postmortem.',
-    link: '/daily-to-do',
-    linkLabel: 'View Case Study',
-    pills: ['Claude Code', 'Cursor', 'Figma'],
-  },
-  {
     id: 10,
     title: 'Quiz Craft App',
     image: '/images/quizcraft-thumbnail.png',
@@ -167,6 +149,15 @@ const aiProjects = [
     link: '/quizapp',
     linkLabel: 'View Case Study',
     pills: ['Claude', 'Flask', 'Cursor'],
+  },
+  {
+    id: 11,
+    title: 'Gryd Mode Calculator App',
+    video: '/images/case-studies/grydmode/lights.mp4',
+    desc: 'I wanted a calculator that reminded me of Tron Legacy and Daft Punk, so I built one.',
+    link: 'https://grydmode.com',
+    linkLabel: 'Visit Grydmode.com to download the app',
+    pills: ['Claude AI', 'Claude Code', 'Figma'],
   },
 ]
 
@@ -391,7 +382,6 @@ export default function Portfolio() {
 
   return (
     <div className="pb-20">
-      <FeaturedBanner />
       <div className="max-w-5xl mx-auto px-6 pt-12">
 
         {/* Page header */}
@@ -400,13 +390,13 @@ export default function Portfolio() {
             Selected Work
           </h1>
           <p className="text-[#3d4f63] text-[15px] max-w-xl leading-relaxed">
-            Product Manager building at the intersection of AI and user experience.
+            I specialize in making AI systems reliable and deployable — balancing cost, latency, and output quality through evaluation frameworks, model selection, and hands-on building.
           </p>
         </div>
 
         {/* Tab switcher */}
         <div className="flex gap-2 mb-10">
-          {[['ai', 'AI Projects (10)'], ['professional', 'Professional (2)']].map(([tab, label]) => (
+          {[['ai', 'AI Projects (9)'], ['professional', 'Professional (2)']].map(([tab, label]) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
