@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import FeaturedBanner from '../components/FeaturedBanner.jsx'
 import { GitBranch, BookOpen } from 'lucide-react'
 
@@ -95,7 +95,7 @@ const aiProjects = [
   {
     id: 4,
     title: 'MCP Product Decision Copilot',
-    image: '/images/case-studies/mcp/diagram.gif',
+    customThumbnail: 'mcp-decision',
     imageFit: 'contain',
     imageBg: '#0d0d0d',
     desc: 'Turns live metrics, roadmap constraints, and OKRs into structured Ship / Delay / Kill decisions. Built on Model Context Protocol.',
@@ -153,7 +153,10 @@ const aiProjects = [
   {
     id: 11,
     title: 'Gryd Mode Calculator App',
-    video: '/images/case-studies/grydmode/lights.mp4',
+    image: '/images/banner/grydmode-banner.gif',
+    imagePosition: 'center',
+    imageFit: 'contain',
+    imageBg: '#0a0a14',
     desc: 'I wanted a calculator that reminded me of Tron Legacy and Daft Punk, so I built one.',
     link: 'https://grydmode.com',
     linkLabel: 'Visit Grydmode.com to download the app',
@@ -239,6 +242,62 @@ function ModelSelectionThumbnail() {
   )
 }
 
+// ── MCP Decision thumbnail ────────────────────────────────────────────────────
+
+function MCPDecisionThumbnail() {
+  const [active, setActive] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActive(prev => (prev + 1) % 3)
+    }, 2400)
+    return () => clearInterval(timer)
+  }, [])
+
+  const decisions = [
+    { label: 'SHIP',  icon: '🚀', color: '#16a34a' },
+    { label: 'DELAY', icon: '⏸',  color: '#475569' },
+    { label: 'KILL',  icon: '✕',   color: '#dc2626' },
+  ]
+
+  return (
+    <div
+      className="w-full h-full flex flex-col items-center justify-center gap-5 px-4"
+      style={{ background: 'linear-gradient(135deg, #0f2544 0%, #1a3a6b 60%, #1e2f55 100%)' }}
+    >
+      <p className="text-[14px] font-semibold uppercase tracking-widest" style={{ color: '#ffffff' }}>
+        Feature Decision
+      </p>
+      <div className="flex items-center justify-center gap-3 w-full">
+        {decisions.map((d, i) => {
+          const isActive = active === i
+          return (
+            <div
+              key={d.label}
+              className="flex flex-col items-center justify-center gap-1.5 rounded-xl transition-all duration-500 flex-1"
+              style={{
+                padding: '10px 6px',
+                background: isActive ? '#ffffff' : 'rgba(255,255,255,0.75)',
+                border: `1.5px solid ${isActive ? d.color : `${d.color}44`}`,
+                boxShadow: isActive ? `0 0 16px ${d.color}88` : 'none',
+                transform: isActive ? 'scale(1.06)' : 'scale(1)',
+              }}
+            >
+              <span style={{ fontSize: '18px', lineHeight: 1, color: isActive ? d.color : `${d.color}99` }}>{d.icon}</span>
+              <span
+                className="font-extrabold tracking-wider"
+                style={{ fontSize: '13px', color: isActive ? d.color : `${d.color}99` }}
+              >
+                {d.label}
+              </span>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
 // ── Lenny slider thumbnail ────────────────────────────────────────────────────
 
 const LENNY_IMAGES = [
@@ -318,6 +377,8 @@ function ProjectCard({ project }) {
           />
         ) : project.customThumbnail === 'lenny-slider' ? (
           <LennySlider />
+        ) : project.customThumbnail === 'mcp-decision' ? (
+          <MCPDecisionThumbnail />
         ) : project.customThumbnail === 'model-selection' ? (
           <ModelSelectionThumbnail />
         ) : project.image ? (
