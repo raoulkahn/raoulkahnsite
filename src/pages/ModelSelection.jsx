@@ -5,11 +5,6 @@ const tech = [
   'Python', 'Claude API', 'OpenAI API', 'Together AI', 'Matplotlib', 'Ollama',
 ]
 
-const links = [
-  { label: 'View the Code', url: 'https://github.com/raoulkahn/model-selection-framework', primary: true },
-  { label: 'Browse 300 Episodes', url: '/lenny-frameworks' },
-]
-
 function AfterCallout() {
   const ref = useRef(null)
 
@@ -61,7 +56,6 @@ export default function ModelSelection() {
       title="Model Selection Framework — Fine-Tuning vs. Prompt Engineering"
       intro="Should I fine-tune a model or optimize prompts? I benchmarked 6 models on a real extraction task across 300 podcast episodes to find out."
       techStack={tech}
-      links={links}
     >
 
       {/* ── Section 1 — The Problem ──────────────────────────────────────── */}
